@@ -1,10 +1,10 @@
 # World_Dynamics_2nd_ed_1973 Appendix B Equations of the World Model
 
-        *        WORLD DYNAMICS W5
+        *            WORLD DYNAMICS W5
 1       L       P.K=P.J+(DT){BR.JK-DR.JK)
-1.1     N       P=P1
-1.2     C       P1=1.65E9
-2       R       BR.KL-=(P.K)(CLIP(BRN,BRN1,SWT1,TIME.K))(BRFM.K)(BRMM·K)(BRCM.K)(BR
+1.1     N       P=PI
+1.2     C       PI=1.65E9
+2       R       BR.KL=(P.K)(CLIP(BRN,BRN1,SWT1,TIME.K))(BRFM.K)(BRMM.K)(BRCM.K)(BR
         X       PM.K)
 2.2     C       BRN=.04
 2.3     C       BRN1=.04
@@ -15,12 +15,12 @@
 4.1     C       ECIRN=1
 5       A       ECIR.K=(CIR.K)(1-CIAF.K)(NREM.K)/(1-CIAFN)
 6       A       NREM.K=TABLE(NREMT,NRFR.K,.25)
-6.1     T       NREMT=0/.35/.5/.85/1
+6.1     T       NREMT=0/.15/.5/.85/1
 7       A       NRFR.K=NR.K/NRI
 8       L       NR.K=NR.J+(DT)(-NRUR.JK)
 8.1     N       NR=NRI
 8.2     C       NRI=900E9
-9       R       NRUR.KL=(P.K)(CLIP(NRUN,NRUNI,SWT2,TIME.K))(NRMM.K)
+9       R       NRUR.KL=(P.K)(CLIP(NRUN,NRUN1,SWT2,TIME.K))(NRMM.K)
 9.1     C       NRUN=1
 9.2     C       NRUN1=1
 9.3     C       SWT2=1970
@@ -30,7 +30,7 @@
 10.2    C       DRN=.028
 10.3    C       DRN1=.028
 10.4    C       SWF3=1970
-11      A       DRMM.K=TABHL(DRMMT,MSL,K,0,5,.5)
+11      A       DRMM.K=TABHL(DRMMT,MSL.K,0,5,.5)
 11.1    T       DRMMT=3/1.8/1/.8/.7/.6/.53/.5/.5/.5/.5
 12      A       DRPM.K=TABLE(DRPMT,POLR.K,0,60,10)
 12.1    T       DRPMT=.92/1.3/2/3.2/4.8/6.8/9.2
@@ -45,9 +45,9 @@
 16.1    T       BRCMT=1.05/1/.9/.7/.6/.55
 17      A       BRFM.K=TABHL(BRFMT,FR.K,0,4,1)
 17.1    T       BRFMT=0/1/1.6/1.9/2
-18      A       BRPM.K=TABLE(BRPMT, POLR.K,0,6,10)
-18.1    T       BRPMT=1.02/.9/.7/.4/.25/.15/1
-19      A       FR.K=(FPC1.K)(FCM.K)(FPM,K)(CLIP(FC,FC1,SWT7,TIME.K))/FN
+18      A       BRPM.K=TABLE(BRPMT, POLR.K,0,60,10)
+18.1    T       BRPMT=1.02/.9/.7/.4/.25/.15/.1
+19      A       FR.K=(FPCI.K)(FCM.K)(FPM.K)(CLIP(FC,FC1,SWT7,TIME.K))/FN
 19.1    C       FC=1
 19.2    C       FC1=1
 19.3    C       FN=1
@@ -56,7 +56,7 @@
 20.1    T       FCMT=2.4/1/.6/.4/.3/.2
 21      A       FPCI.K=TABHL(FPCIT,CIRA.K,0,6,1)
 21.1    T       FPCIT=.5/1/1.4/1.7/1.9/2.05/2.2
-22      A       CIRA.K=(CIRK)(CIAF.K)/CIAFN
+22      A       CIRA.K=(CIR.K)(CIAF.K)/CIAFN
 22.1    C       CIAFN=3
 23      A       CIR.K=CI.K/P.K
 24      L       CI.K=CI.J+(DT)(CIG.JK-CID.JK)
@@ -107,7 +107,7 @@
         NOTE    EQUATION 42 LOCATED BETWEEN EQ.4 AND 9.
 42      A       NRNM.K=TABHL(NRMMT,MSL.K,0,10,1)
 42.1    T       NRMMT=0/1/1.8/2.4/2.9/3.3/3.6/3.8/3.9/3.95/4
-        NOTE    INPUT FROM EQN.38 AND 40 TO EQN.35
+        NOTE         INPUT FROM EQN.38 AND 40 TO EQN.35
 43      A       CIQR.K=TABHL(CIQRT,QLM.K/QLF.K,0,2,.5)
 43.1    T       CIQRT=.7/.8/1/1.5/2
         NOTE
@@ -123,7 +123,7 @@
 45      A       PLTPER.K=CLIP(PRTP1,PLTP2,PLSWT,TIME.K)
 45.1    C       PLTP1=4
 45.2    C       PLTP2=4
-45.3    C       PRSWT=4
+45.3    C       PRSWT=0
         PLOT    P=P(0,8E9)/POLR=2(0,40)/CI=C(0,20E9)/QL=Q(0,2)/NR=N(0,1000E9)
         PLOT    FR=F,MSL=M,QLC=4,QLP=5(0.2)/CIAF=A(.2,.6)
         RUN     ORIG
