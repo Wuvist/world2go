@@ -1,0 +1,19 @@
+The equations as printed in Chapter 3 and Appendix B are written in thenotation for the DYNAMO compiler. For complete information see the DYNAMO User's Manual by Alexander L. Pugh, [ll,third edition, M.I.T.Press.Cambridge,Massachusetts,1970.
+
+The letters J, K, and L following a decimal point that separates the letters from the symbol groups representing variables are time-step indicators. The “present” time at which the equation is being evaluated is called time K. The previous point in time was J, the next is L. In rate equations, the JK notation indicates therate that existed over the preceding time interval, and KL indicates the rate of flow that is being computed for the following time interval.
+
+Variables and constants are designated by letter groups as defined in Appendix C.
+
+Before the equation in Appendix B and after the equation number in Chapter 3 is a letter indicating the kind of concept that is defined by the equation. The letter:
+* L indicates a level equation
+* N an initial value for a level
+* R a rate equation
+
+A an auxiliary variable that is part of the rate equation it feeds:
+* C a constant
+* T atable
+* X indicates a continuation from the preceding line.
+
+In several equations, for example Equation 2, will be found the CLIP function. It is used here as a switch to change the value of a constant at a specified point in time. In Equation 2, the value BRN is used until TIME reaches the value specified by SWT1 after which the value is changed to that given by BRN1. The several CLIP functions are used in producing the computer runs in this book.
+
+TABLE and TABHL are table look-up functions as for example in Equation3. In that equation the format indicates that a table by the name of BRMMT will be entered with the variable MSL. The table extends from a value of MSL of O toa value of 5 in steps of 1 unit in MSL. The following line gives the required sixvalues for the table as graphically portrayed in Figure 3-1.
